@@ -10,8 +10,6 @@ import { StreamTranscriptItem } from "@/modules/meetings/types";
 
 import { getOpenAiConfig } from "@/lib/openai-config";
 
-import { normalizeOpenAiUrl, parseOpenAiHeaders } from "@/lib/openai-config";
-
 const openAiConfig = getOpenAiConfig();
 
 const summarizer = createAgent({
@@ -154,5 +152,4 @@ export const meetingsProcessing = inngest.createFunction(
     console.log(`[inngest] meetings/processing completed meetingId=${event.data.meetingId}`);
   },
 );
-
 

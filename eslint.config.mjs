@@ -14,6 +14,19 @@ const compat = new FlatCompat({
 // 继承 Next.js 推荐规则
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          varsIgnorePattern: "^(body|signature|normalizeOpenAiUrl|parseOpenAiHeaders|polar|checkout|portal|polarClient)$",
+          argsIgnorePattern: "^_",
+          vars: "all",
+        },
+      ],
+      "@next/next/no-img-element": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

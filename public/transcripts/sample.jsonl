@@ -1,0 +1,4 @@
+{"speaker_id":"agent","type":"text","text":"Welcome to our coaching call. Today we are reviewing the new product launch timeline.","start_ts":0,"stop_ts":8}
+{"speaker_id":"customer","type":"text","text":"Thanks. I want to know the go-live requirements and support plan.","start_ts":8,"stop_ts":16}
+{"speaker_id":"agent","type":"text","text":"We need QA signoff, marketing assets ready, and the support rotation confirmed.","start_ts":16,"stop_ts":27}
+{"speaker_id":"customer","type":"text","text":"Understood. I'll coordinate with marketing and share updates by Thursday.","start_ts":27,"stop_ts":34}

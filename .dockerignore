@@ -1,0 +1,14 @@
+node_modules
+.next
+.ngrok*
+dist
+coverage
+*.log
+npm-debug.log
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.vscode
+Dockerfile

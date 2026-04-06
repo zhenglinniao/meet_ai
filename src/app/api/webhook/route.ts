@@ -144,11 +144,15 @@ export async function POST(req: NextRequest) {
   } else if (eventType === "call.transcription_ready") {
     const event = payload as CallTranscriptionReadyEvent;
     const meetingId = event.call_cid.split(":")[1]; // call_cid 格式为 "type:id"
+    const payloadRecord = payload as Record<string, unknown>;
+    const transcriptions =
+      payloadRecord?.call_transcriptions as Array<{ url?: string }> | undefined;
+
     const transcriptUrl =
       event.call_transcription?.url ??
-      (payload as Record<string, unknown>)?.call_transcription_url ??
-      (payload as Record<string, unknown>)?.call_transcriptions?.[0]?.url ??
-      (payload as Record<string, unknown>)?.call?.transcription?.url;
+      payloadRecord?.call_transcription_url ??
+      transcriptions?.[0]?.url ??
+      payloadRecord?.call?.transcription?.url;
 
     if (!transcriptUrl || typeof transcriptUrl !== "string") {
       console.error("Missing transcript URL in webhook payload", payload);
@@ -309,7 +313,6 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ status: "ok" });
 }
-
 
 
 
